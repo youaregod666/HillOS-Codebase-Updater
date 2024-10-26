@@ -48,6 +48,9 @@ local function DownloadNewerVersion_Snowyhill()
     Internet.download("https://raw.githubusercontent.com/youaregod666/HillOS/SnowyHill/.system/Libraries/OpenComputersGL/Materials.lua", "/.system/Libraries/OpenComputersGL/Materials.lua")
     Internet.download("https://raw.githubusercontent.com/youaregod666/HillOS/SnowyHill/.system/Libraries/OpenComputersGL/Renderer.lua", "/.system/Libraries/OpenComputersGL/Renderer.lua")
     Internet.download("https://raw.githubusercontent.com/youaregod666/HillOS/SnowyHill/.system/Boot/EFI/EFI.lua", "/.system/Boot/EFI/EFI.lua")
+
+    Filesystem.remove("/.system/Updater.lua")
+
     computer.shutdown(true)
 end
 
