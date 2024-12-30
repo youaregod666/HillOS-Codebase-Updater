@@ -9,8 +9,10 @@ local component = require("Component")
 local EFI = component.eeprom
 local Internet = require("Internet")
 
-local VersionCheck = ""
+local VersionCheck
 VersionCheck = System.HillOSVersion
+
+
 
 local function DownloadNewerVersion_MoonSpace()
 if Filesystem.exists("/Backup") then
@@ -49,10 +51,15 @@ if Filesystem.exists("/Backup") then
     Internet.download("https://raw.githubusercontent.com/youaregod666/HillOS/SnowyHill/.system/Libraries/OpenComputersGL/Materials.lua", "/.system/Libraries/OpenComputersGL/Materials.lua")
     Internet.download("https://raw.githubusercontent.com/youaregod666/HillOS/SnowyHill/.system/Libraries/OpenComputersGL/Renderer.lua", "/.system/Libraries/OpenComputersGL/Renderer.lua")
     Internet.download("https://raw.githubusercontent.com/youaregod666/HillOS/SnowyHill/.system/Boot/EFI/EFI.lua", "/.system/Boot/EFI/EFI.lua")
-
     Filesystem.remove("/.system/Updater.lua")
-
-    computer.shutdown(true)
+-- Checking if you have Lua 5.3. if you have it then reboot the system.
+if computer.getArchitecture and computer.getArchitecture() == "Lua 5.2" then
+	local computer = require("computer")
+	computer.setArchitecture("Lua 5.3")
+else
+	computer.shutdown(true)
+end
+        
 end
 
 DownloadNewerVersion_MoonSpace()
