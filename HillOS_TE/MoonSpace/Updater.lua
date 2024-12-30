@@ -12,8 +12,8 @@ local Internet = require("Internet")
 local VersionCheck = ""
 VersionCheck = System.HillOSVersion
 
-local function DownloadNewerVersion_Snowyhill()
-    if Filesystem.exists("/Backup") then
+local function DownloadNewerVersion_MoonSpace()
+if Filesystem.exists("/Backup") then
         Filesystem.remove("/Backup")
         Filesystem.makeDirectory("/Backup")
     else
@@ -55,21 +55,4 @@ local function DownloadNewerVersion_Snowyhill()
     computer.shutdown(true)
 end
 
-local function DownloadNewerVersion_LongCopenhagen()
-
-end
-
-local function DownloadNewerVersion_LittleVally()
-
-end
-
-if VersionCheck == "1.1.8.2" then
-    DownloadNewerVersion_Snowyhill()
-elseif VersionCheck == "1.1.8.0" then
-    DownloadNewerVersion_Snowyhill()
-elseif VersionCheck == "1.2.8.6" then
-    DownloadNewerVersion_LittleVally()
-end
-
-
-
+DownloadNewerVersion_MoonSpace()
